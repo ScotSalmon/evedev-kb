@@ -28,13 +28,12 @@
 								<table>
 									<tr>
 										<td>
-											<textarea class="comment" name="comment" cols="55" rows="5" style="width:97%" onkeyup="limitText(this.form.comment,document.getElementById('countdown'),500);" onkeypress="limitText(this.form.comment,document.getElementById('countdown'),500);"></textarea>
+											<textarea class="comment" name="comment" cols="55" rows="5" style="width:97%"></textarea>
 										</td>
 									</tr>
 									<tr>
 										<td>
 											<br/>
-											<span title="countdown" id="countdown">500</span> Letters left<br/>
 											<b>Name:</b>
 											<input style="position:relative; right:-3px;" class="comment-button" name="name" type="text" size="24" maxlength="24" {if $username}value="{$username}" {/if}/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 {if $config->get('comments_pw') and !$page->isAdmin()}
