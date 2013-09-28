@@ -679,6 +679,8 @@ class Kill extends Cacheable
 
 			$weapon = $inv->getWeapon();
 			$ship = $inv->getShip();
+			$ship_id = $ship->getID();
+if ($ship_id != "9999") {
 
 			// Split these into multiple ifs so the error tells us where the
 			// problem was.
@@ -732,7 +734,7 @@ class Kill extends Cacheable
 			}
 			$mail .= "\r\n";
 		}
-
+}
 		if (count($this->destroyeditems_) > 0) {
 			$mail .= "\r\nDestroyed items:\r\n\r\n";
 
@@ -931,6 +933,7 @@ class Kill extends Cacheable
 				ind_shp_id, ind_wep_id, ind_dmgdone
 				from kb3_inv_detail
 				where ind_kll_id = ".$this->getID()."
+and ind_shp_id != 9999
 				order by ind_order";
 
 			$qry->execute($sql) or die($qry->getErrorMsg());

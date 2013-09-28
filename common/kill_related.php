@@ -509,7 +509,7 @@ class pKillRelated extends pageAssembly
 				left join kb3_alliances on ind_all_id=all_id
 				left join kb3_ships on ind_shp_id=shp_id
 				left join kb3_ship_classes on shp_class=scl_id
-				where ind_kll_id = ".$kill->getID()."
+				where ind_kll_id = ".$kill->getID()." and ind_shp_id != '9999'
 				order by ind_order";
 
 		$qry->execute($sql);
