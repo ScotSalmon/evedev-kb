@@ -23,7 +23,7 @@
 			<td class="kb-table-cell" style="padding-top: 1px; padding-bottom: 1px;"><a href="{$i.corpURL}">{$i.corpName}</a></td>
 		</tr>
 		<tr class="{cycle name="ccl"}">
-			<td>{if $i.alliURL}<a href="{$i.alliURL}">{$i.alliName}</a>{else}{$i.alliName}{/if}</td>
+			<td style="{if $i.alliName == "Electus Matari"} background: #1F6700{/if}">{if $i.alliURL}<a href="{$i.alliURL}">{$i.alliName}</a>{else}{$i.alliName}{/if}</td>
 		</tr>
 		<tr class="{cycle name="ccl"}">
 			{if $i.shipURL}<td><a href="{$i.shipURL}">{$i.shipName}</a> ({$i.shipClass})</td>
