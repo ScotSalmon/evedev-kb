@@ -610,6 +610,16 @@ class Kill extends Cacheable
 			}
 		}
 
+		$qry = new DBQuery();
+		$kid = $this->id;
+		$sql = "SELECT info FROM killmails WHERE id = $kid;";
+		$qry->execute($sql);
+		if ($qry->recordCount() > 0)
+		{
+			$row = $qry->getRow();
+			return $row['info'];
+		}
+
 		$ship = $this->getVictimShip();
 		$shipclass = $ship->getClass();
 		if(!$this->getVictimCorpName()) {

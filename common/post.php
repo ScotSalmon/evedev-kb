@@ -86,6 +86,21 @@ function post()
 </form>';
 			}
 		} else {
+			$qry = new DBQuery();
+			$sql = "DELETE FROM killmails WHERE id = $killid";
+			$qry->execute($sql)
+			    or die($qry->getErrorMsg());
+			# Madness? THIS IS PHP!
+			if (!get_magic_quotes_gpc()) {
+				$killmail = addslashes($_POST['killmail']);
+			} else {
+				$killmail = $_POST['killmail'];
+			}
+			$sql = "INSERT INTO killmails (id, info)
+			        VALUES (".$killid.", '".$killmail."');";
+			$qry->execute($sql)
+			    or die($qry->getErrorMsg());
+
 			if (config::get('post_mailto') != "") {
 				$mailer = new PHPMailer();
 				$kill = new Kill($killid);
