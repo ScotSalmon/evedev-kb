@@ -88,7 +88,11 @@
 			</object>
 {else}
 		<a href="{if isset($banner_link)}{$banner_link}{else}?a=home{/if}">
-			<img src="{$kb_host}/banner/{$banner}" alt="Banner" {if $banner_x && $banner_y}width = "{$banner_x}" height="{$banner_y}"{/if} />
+<div style="height: 160px; text-align: center">
+ <img src="http://www.electusmatari.com/banner/" border="0" alt="Banner"
+      style="max-height: 160px" />
+</div>
+
 		</a>
 {/if}
 		</div>
