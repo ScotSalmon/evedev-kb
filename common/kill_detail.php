@@ -152,7 +152,7 @@ class pKillDetail extends pageAssembly
 							.' you, bad for a comment.';
 				} else {
 					$comment = $_POST['comment'];
-					$name = $_POST['name'];
+					$name = EM_USERNAME;
 					if ($name == null) {
 						$name = 'Anonymous';
 					}

@@ -85,6 +85,7 @@ class Comments
 		$smarty->assignByRef('comments', $this->comments_);
 		$smarty->assign('norep', time() % 3700);
 		$smarty->assign('akey', session::isAdmin() ? session::makeKey() : false);
+		$smarty->assign('username', EM_USERNAME);
 		if ($commentsOnly) {
 			return $smarty->fetch(get_tpl('comments_comments'));
 		} else {
@@ -167,7 +168,7 @@ class Comments
 			'<a href="'.KB_HOST.'/?a=pilot_detail&amp;plt_id=\1">\2</a>', $string); //keep hardcoded URLs; we don't want session IDs here
 		return nl2br($string);
 	}
-	
+
 	/**
 	 * Get the ID for the kill these comments relate to.
 	 * @return integer The ID for the kill these comments relate to.
@@ -178,4 +179,3 @@ class Comments
 	}
 
 }
-
