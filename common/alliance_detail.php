@@ -292,7 +292,7 @@ class pAllianceDetail extends pageAssembly
 				if (config::get('killlist_involved')) {
 					$list->setCountInvolved(true);
 				}
-				$list->setLimit(10);
+				$list->setLimit(50);
 				$list->addInvolvedAlliance($this->alliance);
 				if ($scl_id) {
 					$list->addVictimShipClass($scl_id);
@@ -301,7 +301,7 @@ class pAllianceDetail extends pageAssembly
 					$list->setPodsNoobShips(config::get('podnoobs'));
 				}
 				$ktab = new KillListTable($list);
-				$ktab->setLimit(10);
+				$ktab->setLimit(50);
 				$smarty->assign('kills', $ktab->generate());
 
 				$list = new KillList();
@@ -312,7 +312,7 @@ class pAllianceDetail extends pageAssembly
 				if (config::get('killlist_involved')) {
 					$list->setCountInvolved(true);
 				}
-				$list->setLimit(10);
+				$list->setLimit(50);
 				$list->addVictimAlliance($this->alliance);
 				if ($scl_id) {
 					$list->addVictimShipClass($scl_id);
@@ -321,7 +321,7 @@ class pAllianceDetail extends pageAssembly
 					$list->setPodsNoobShips(config::get('podnoobs'));
 				}
 				$ltab = new KillListTable($list);
-				$ltab->setLimit(10);
+				$ltab->setLimit(50);
 				$smarty->assign('losses', $ltab->generate());
 
 				return $smarty->fetch(get_tpl('detail_kl_default'));
@@ -385,12 +385,14 @@ class pAllianceDetail extends pageAssembly
 				$list->setPodsNoobShips(config::get('podnoobs'));
 				$list->setMonth($this->month);
 				$list->setYear($this->year);
+				$list->setLimit(50);
 				$table = new TopTable_Corp($list, Language::get('kills'));
 				$smarty->assign('monthly_stats', $table->generate());
 
 				$list = new TopList_CorpKills();
 				$list->addInvolvedAlliance($this->alliance);
 				$list->setPodsNoobShips(config::get('podnoobs'));
+				$list->setLimit(50);
 				$table = new TopTable_Corp($list, Language::get('kills'));
 				$smarty->assign('total_stats', $table->generate());
 
@@ -525,12 +527,14 @@ class pAllianceDetail extends pageAssembly
 				$list->setPodsNoobShips(config::get('podnoobs'));
 				$list->setMonth($this->month);
 				$list->setYear($this->year);
+				$list->setLimit(50);
 				$table = new TopTable_Corp($list, Language::get('losses'));
 				$smarty->assign('monthly_stats', $table->generate());
 
 				$list = new TopList_CorpLosses();
 				$list->addVictimAlliance($this->alliance);
 				$list->setPodsNoobShips(config::get('podnoobs'));
+				$list->setLimit(50);
 				$table = new TopTable_Corp($list, Language::get('losses'));
 				$smarty->assign('total_stats', $table->generate());
 
@@ -561,6 +565,7 @@ class pAllianceDetail extends pageAssembly
 				$list->setPodsNoobShips(config::get('podnoobs'));
 				$list->setMonth($this->month);
 				$list->setYear($this->year);
+				$list->setLimit(50);
 				$table = new TopTable_Pilot($list, Language::get('kills'));
 				$smarty->assign('monthly_stats', $table->generate());
 
@@ -568,6 +573,7 @@ class pAllianceDetail extends pageAssembly
 				$list->setLimit(30);
 				$list->addInvolvedAlliance($this->alliance);
 				$list->setPodsNoobShips(config::get('podnoobs'));
+				$list->setLimit(50);
 				$table = new TopTable_Pilot($list, Language::get('kills'));
 				$smarty->assign('total_stats', $table->generate());
 
@@ -596,11 +602,13 @@ class pAllianceDetail extends pageAssembly
 				$list->addInvolvedAlliance($this->alliance);
 				$list->setMonth($this->month);
 				$list->setYear($this->year);
+				$list->setLimit(50);
 				$table = new TopTable_Pilot($list, Language::get('top_points'));
 				$smarty->assign('monthly_stats', $table->generate());
 
 				$list = new TopList_Score();
 				$list->addInvolvedAlliance($this->alliance);
+				$list->setLimit(50);
 				$table = new TopTable_Pilot($list, Language::get('top_points'));
 				$smarty->assign('total_stats', $table->generate());
 
@@ -630,12 +638,14 @@ class pAllianceDetail extends pageAssembly
 				$list->setPodsNoobShips(config::get('podnoobs'));
 				$list->setMonth($this->month);
 				$list->setYear($this->year);
+				$list->setLimit(50);
 				$table = new TopTable_Pilot($list, Language::get('losses'));
 				$smarty->assign('monthly_stats', $table->generate());
 
 				$list = new TopList_Losses();
 				$list->addVictimAlliance($this->alliance);
 				$list->setPodsNoobShips(config::get('podnoobs'));
+				$list->setLimit(50);
 				$table = new TopTable_Pilot($list, Language::get('losses'));
 				$smarty->assign('total_stats', $table->generate());
 
