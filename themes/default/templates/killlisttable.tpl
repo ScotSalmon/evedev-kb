@@ -25,22 +25,22 @@
 					{/if}
 						<td style="display: none">{$k.id}</td>
 						<td>
-                            <div class="kl-date">
-                                {if $daybreak}
-                                    {if $k.urlrelated}
-                                        <a href="{$k.urlrelated}"><b>{$k.timestamp|date_format:"%H:%M"}</b></a>
-                                        {else}
-                                        <b>{$k.timestamp|date_format:"%H:%M"}</b>
-                                    {/if}
-                                    {else}
-                                    {if $k.urlrelated}
-                                        <a href="{$k.urlrelated}"><b>{$k.timestamp|date_format:"%y-%m-%d"} {$k.timestamp|date_format:"%H:%M"}</b></a>
-                                        {else}
-                                        <b>{$k.timestamp|date_format:"%y-%m-%d"} {$k.timestamp|date_format:"%H:%M"}</b>
-                                    {/if}
-                                {/if}
-                            </div>
-                        </td>
+							<div class="kl-date">
+								{if $daybreak}
+									{if $k.urlrelated}
+										<a href="{$k.urlrelated}"><b>{$k.timestamp|date_format:"%H:%M"}</b></a>
+									{else}
+										<b>{$k.timestamp|date_format:"%H:%M"}</b>
+									{/if}
+								{else}
+									{if $k.urlrelated}
+										<a href="{$k.urlrelated}"><b>{$k.timestamp|date_format:"%y-%m-%d"} {$k.timestamp|date_format:"%H:%M"}</b></a>
+									{else}
+										<b>{$k.timestamp|date_format:"%y-%m-%d"} {$k.timestamp|date_format:"%H:%M"}</b>
+									{/if}
+								{/if}
+							</div>
+						</td>
 						<td>
 							<div class="kl-shiptype">
 								<img src='{$k.victimshipimage}' class="kl-img" alt="" />
@@ -54,9 +54,9 @@
 						<td>
 							<div class="kl-victim">
 								{if !$k.allianceexists}
-								&nbsp;
+									&nbsp;
 								{else}
-								<img src="{$k.victimallianceicon}" class="kl-img" title="{$k.victimalliancename}" alt="{$k.victimalliancename}" />
+									<img src="{$k.victimallianceicon}" class="kl-img" title="{$k.victimalliancename}" alt="{$k.victimalliancename}" />
 								{/if}
 								<div class="no_stretch kl-victim-text">
 									{if $k.loss}
